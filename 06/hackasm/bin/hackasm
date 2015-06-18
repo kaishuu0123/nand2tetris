@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+here = File.dirname(__FILE__)
+$LOAD_PATH << File.expand_path(File.join(here, '..', 'lib'))
+
+require 'hackasm'
+
+if ARGV.empty?
+  puts "Usage: #{File.basename(__FILE__)} <file.asm>"
+  exit 1
+end
+
+infile = ARGV[0]
+hackasm = HackAsm.new
+hackasm.assemble(infile)
